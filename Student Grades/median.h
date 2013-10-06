@@ -24,7 +24,7 @@ T median(std::vector<T> v) {
     if (size == 0)
         throw std::domain_error("median of an empty vector");
     
-    sort(v.begin(), v.end());
+    std::sort(v.begin(), v.end());
     
     vec_sz mid = size/2;
     

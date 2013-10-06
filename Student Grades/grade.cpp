@@ -29,6 +29,10 @@ bool fgrade(const Student_info& s) {
     return grade(s) < 60;
 }
 
+double Student_info::grade() const {
+    return ::grade(midterm, final, homework);
+}
+
 list<Student_info> extract_fails(list<Student_info>& students) {
     list<Student_info> fail;
     list<Student_info>::iterator iter = students.begin();

@@ -14,15 +14,20 @@
 #include <vector>
 #include <list>
 
-struct Student_info {
-    std::string name;
+class Student_info {
+public:
+    std::string n;
     double midterm, final;
     std::vector<double> homework;
+private:
+    std::istream& read(std::istream&);
+    double grade() const;
+    std::string name() const { return n; }
 };
 
 bool compare(const Student_info&, const Student_info&);
-std::istream& read(std::istream&, Student_info&);
-std::istream& read_hw(std::istream&, std::vector<double>&);
+//std::istream& read(std::istream&, Student_info&);
+//std::istream& read_hw(std::istream&, std::vector<double>&);
 bool did_all_hw(const Student_info&);
 bool students_did_hw(std::vector<Student_info>&);
 bool students_did_hw();

@@ -17,11 +17,21 @@ bool compare(const Student_info& x, const Student_info& y) {
     return x.name < y.name;
 }
 
-istream& read(istream& is, Student_info& s) {
-    is >> s.name >> s.midterm >> s.final;
-    
-    read_hw(is, s.homework);
-    return is;
+//istream& read(istream& is, Student_info& s) {
+//    is >> s.name >> s.midterm >> s.final;
+//    
+//    read_hw(is, s.homework);
+//    return is;
+//}
+
+istream& Student_info::read(istream& in) {
+    in >> name >> midterm >> final;
+    read_hw(in, homework);
+    return in;
+}
+
+double Student_info::grade() const {
+    return ::grade(midterm, final, homework);
 }
 
 istream& read_hw(istream& in, vector<double>& hw) {
