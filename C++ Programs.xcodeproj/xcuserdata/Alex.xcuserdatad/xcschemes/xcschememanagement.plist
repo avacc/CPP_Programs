@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>Business Card Ray Tracer.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+		<key>C++ Programs.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+		<key>Hello World.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>Iterator Types.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
+		<key>Strings.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>Student Grades.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>FA8ED4A817EF42EB0060AE84</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FAB59C7817E4D80700963166</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FAB59C8817E4D87C00963166</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FAB59C9517E4D90000963166</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FAB59CAB17E5141B00963166</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FAF03B1A1800F11200287CF9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
