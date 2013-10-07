@@ -15,7 +15,6 @@
 		FAB59C9B17E4D90000963166 /* Student_Grades.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = FAB59C9A17E4D90000963166 /* Student_Grades.1 */; };
 		FAB59CA117E4F57700963166 /* median.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FAB59C9F17E4F57700963166 /* median.cpp */; };
 		FAB59CA417E4F73B00963166 /* Student_info.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FAB59CA217E4F73B00963166 /* Student_info.cpp */; };
-		FAB59CA717E4F98E00963166 /* grade.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FAB59CA517E4F98E00963166 /* grade.cpp */; };
 		FAB59CAF17E5141C00963166 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FAB59CAE17E5141C00963166 /* main.cpp */; };
 		FAB59CB117E5141C00963166 /* Strings.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = FAB59CB017E5141C00963166 /* Strings.1 */; };
 		FAB59CB717E5144400963166 /* string_funcs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FAB59CB517E5144400963166 /* string_funcs.cpp */; };
@@ -90,8 +89,6 @@
 		FAB59CA017E4F57700963166 /* median.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = median.h; sourceTree = "<group>"; };
 		FAB59CA217E4F73B00963166 /* Student_info.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Student_info.cpp; sourceTree = "<group>"; };
 		FAB59CA317E4F73B00963166 /* Student_info.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Student_info.h; sourceTree = "<group>"; };
-		FAB59CA517E4F98E00963166 /* grade.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = grade.cpp; sourceTree = "<group>"; };
-		FAB59CA617E4F98E00963166 /* grade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = grade.h; sourceTree = "<group>"; };
 		FAB59CAC17E5141B00963166 /* Strings */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Strings; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAB59CAE17E5141C00963166 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		FAB59CB017E5141C00963166 /* Strings.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = Strings.1; sourceTree = "<group>"; };
@@ -197,8 +194,6 @@
 				FAB59CA017E4F57700963166 /* median.h */,
 				FAB59CA217E4F73B00963166 /* Student_info.cpp */,
 				FAB59CA317E4F73B00963166 /* Student_info.h */,
-				FAB59CA517E4F98E00963166 /* grade.cpp */,
-				FAB59CA617E4F98E00963166 /* grade.h */,
 			);
 			path = "Student Grades";
 			sourceTree = "<group>";
@@ -370,7 +365,6 @@
 				FAB59C9917E4D90000963166 /* main.cpp in Sources */,
 				FAB59CA117E4F57700963166 /* median.cpp in Sources */,
 				FAB59CA417E4F73B00963166 /* Student_info.cpp in Sources */,
-				FAB59CA717E4F98E00963166 /* grade.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
