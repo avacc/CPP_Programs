@@ -14,6 +14,11 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>Exercises.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
 		<key>Hello World.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -37,6 +42,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>FA4C6985180600F30069C4BC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>FA8ED4A817EF42EB0060AE84</key>
 		<dict>
 			<key>primary</key>
