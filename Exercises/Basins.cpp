@@ -96,13 +96,12 @@
 
 #include "Basins.h"
 
-using std::string;
+using std::string;      using std::stringstream;
+using std::cout;        using std::endl;
 using std::map;
-using std::cout;
-using std::endl;
 
 static void calculate_basins(int** area) {
-    static const size_t size = sizeof(area)/sizeof(area*);
+    static const size_t size = sizeof(area)/sizeof(*area);
     string** basins = new string*[size];
     for (int i = 0; i < size; i++)
         basins[i] = new string[size];
@@ -121,16 +120,20 @@ static void calculate_basins(int** area) {
                 tokenizer tokens(value_string, sep);
                 tokenizer::iterator tok_iter = tokens.begin();
                 
-                char basin_unique_char = *tok_iter++;
-                string basin_size_str = *tok_iter;
-                int basin_size = atoi(basin_size_str.c_str());
+                char basin_unique_char = (*tok_iter).c_str()[0];
+                tok_iter++;
+                int basin_size = atoi((*tok_iter).c_str());
                 
                 basin_size += 1;
-                string s("" + basin_unique_char + ":" + basin_size);
-                m[basins[x][y]].push_back(s);
+                stringstream ss;
+                ss << basin_unique_char << ":" << basin_size;
+                string s = ss.str();
+                m.insert(std::pair<string, string>(basins[x][y], s));
             } else {
-                string s("" + unique_char + ":" + 1);
-                m[basins[x][y]].push_back(s);
+                stringstream ss;
+                ss << unique_char << ":" << 1;
+                string s = ss.str();
+                m.insert(std::pair<string, string>(basins[x][y], s));
             }
         }
     }
@@ -150,8 +153,10 @@ static void calculate_basins(int** area) {
 }
 
 static string lowest_plot(int** area, int x, int y, char ch) {
-    string lowest_p("" + x + "," + y);
-    static const size_t size = sizeof(area)/sizeof(area*);
+    stringstream ss;
+    ss << x << "," << y;
+    string lowest_p = ss.str();
+    static const size_t size = sizeof(area)/sizeof(*area);
     int leftX, leftY, rightX, rightY, topX, topY, bottomX, bottomY;
     int minX, minY, min_value;
     
@@ -172,31 +177,31 @@ static string lowest_plot(int** area, int x, int y, char ch) {
     min_value = area[x][y];
     
     if (!is_out_of_bounds(leftX, leftY, size)) {
-        if (area[leftX][leftY] < minValue) {
+        if (area[leftX][leftY] < min_value) {
             minX = leftX;
             minY = leftY;
-            minValue = area[leftX][leftY];
+            min_value = area[leftX][leftY];
         }
     }
     if (!is_out_of_bounds(rightX, rightY, size)) {
-        if (area[rightX][rightY] < minValue) {
+        if (area[rightX][rightY] < min_value) {
             minX = rightX;
             minY = rightY;
-            minValue = area[rightX][rightY];
+            min_value = area[rightX][rightY];
         }
     }
     if (!is_out_of_bounds(topX, topY, size)) {
-        if (area[topX][topY] < minValue) {
+        if (area[topX][topY] < min_value) {
             minX = topX;
             minY = topY;
-            minValue = area[topX][topY];
+            min_value = area[topX][topY];
         }
     }
     if (!is_out_of_bounds(bottomX, bottomY, size)) {
-        if (area[bottomX][bottomY] < minValue) {
+        if (area[bottomX][bottomY] < min_value) {
             minX = bottomX;
             minY = bottomY;
-            minValue = area[bottomX][bottomY];
+            min_value = area[bottomX][bottomY];
         }
     }
     

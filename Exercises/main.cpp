@@ -29,7 +29,7 @@ int main(int argc, const char * argv[])
     
     for (int x = 0; x < size; x++) {
         for (int y = 0; y < size; y++) {
-            cout << "(" + x + "," + y + ") : ";
+            cout << "(" << x << "," << y << ") : ";
             getline(cin, line);
             area[x][y] = atoi(trim(line).c_str());
         }
