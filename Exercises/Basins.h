@@ -9,9 +9,12 @@
 #ifndef __C___Programs__Basins__
 #define __C___Programs__Basins__
 
+#include <stdlib.h>
 #include <iostream>
 #include <string>
 #include <map>
+#include <boost/tokenizer.hpp>
+
 
 static void calculate_basins(int**);
 static std::string lowest_plot(int**, int, int, char);

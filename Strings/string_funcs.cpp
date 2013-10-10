@@ -138,3 +138,17 @@ vector<string> find_urls(const string& s) {
     }
     return ret;
 }
+
+static inline string& ltrim(string& s) {
+    s.erase(s.begin(), std::find_if(s.begin(), s.end(), std::not1(std::ptr_fun<int, int>(isspace))));
+    return s;
+}
+
+static inline string& rtrim(string& s) {
+    s.erase(std::find_if(s.rbegin(), s.rend(), std::not1(std::ptr_fun<int, int>(isspace))).base(), s.end());
+    return s;
+}
+
+static inline string& trim(string& s) {
+    return ltrim(rtrim(s));
+}

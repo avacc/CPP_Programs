@@ -98,6 +98,8 @@
 
 using std::string;
 using std::map;
+using std::cout;
+using std::endl;
 
 static void calculate_basins(int** area) {
     static const size_t size = sizeof(area)/sizeof(area*);
@@ -110,13 +112,45 @@ static void calculate_basins(int** area) {
     for (int x = 0; x < size; x++) {
         for (int y = 0; y < size; y++) {
             basins[x][y] = lowest_plot(area, x, y, 'A');
-            if ()
+            map<string, string>::iterator it = m.find(basins[x][y]);
+            if (it != m.end()) {
+                string value_string = it->second;
+                
+                typedef boost::tokenizer<boost::char_separator<char> > tokenizer;
+                boost::char_separator<char> sep(":");
+                tokenizer tokens(value_string, sep);
+                tokenizer::iterator tok_iter = tokens.begin();
+                
+                char basin_unique_char = *tok_iter++;
+                string basin_size_str = *tok_iter;
+                int basin_size = atoi(basin_size_str.c_str());
+                
+                basin_size += 1;
+                string s("" + basin_unique_char + ":" + basin_size);
+                m[basins[x][y]].push_back(s);
+            } else {
+                string s("" + unique_char + ":" + 1);
+                m[basins[x][y]].push_back(s);
+            }
         }
     }
+    for (int x = 0; x < size; x++) {
+        for (int y = 0; y < size; y++) {
+            map<string, string>::iterator it = m.find(basins[x][y]);
+            if (it != m.end()) {
+                cout << '\t' << it->second;
+            }
+        }
+        cout << endl;
+    }
+    for (int i = 0; i < size; i++) {
+        delete [] basins[i];
+    }
+    delete [] basins;
 }
 
 static string lowest_plot(int** area, int x, int y, char ch) {
-    string lowest_p = "" + x + "," + y;
+    string lowest_p("" + x + "," + y);
     static const size_t size = sizeof(area)/sizeof(area*);
     int leftX, leftY, rightX, rightY, topX, topY, bottomX, bottomY;
     int minX, minY, min_value;

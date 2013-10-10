@@ -13,7 +13,8 @@
 #include <string>
 #include <cctype>
 #include <algorithm>
-#include <cctype>
+#include <functional>
+#include <locale>
 
 // std::vector<std::string> split(const std::string&);
 std::string::size_type width(const std::vector<std::string>&);
@@ -25,6 +26,10 @@ bool not_url_char(char);
 std::string::const_iterator url_end(std::string::const_iterator, std::string::const_iterator);
 std::string::const_iterator url_beg(std::string::const_iterator, std::string::const_iterator);
 std::vector<std::string> find_urls(const std::string&);
+static inline std::string& ltrim(std::string&);
+static inline std::string& rtrim(std::string&);
+static inline std::string& trim(std::string&);
+
 
 template <class Out>
 void split(const std::string& str, Out os) {

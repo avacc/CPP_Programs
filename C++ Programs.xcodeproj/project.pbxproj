@@ -22,6 +22,7 @@
 		FAB59CAF17E5141C00963166 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FAB59CAE17E5141C00963166 /* main.cpp */; };
 		FAB59CB117E5141C00963166 /* Strings.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = FAB59CB017E5141C00963166 /* Strings.1 */; };
 		FAB59CB717E5144400963166 /* string_funcs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FAB59CB517E5144400963166 /* string_funcs.cpp */; };
+		FACE461218073CCF00379420 /* string_funcs.h in Sources */ = {isa = PBXBuildFile; fileRef = FAB59CB617E5144400963166 /* string_funcs.h */; };
 		FAF03B1E1800F11200287CF9 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FAF03B1D1800F11200287CF9 /* main.cpp */; };
 		FAF03B201800F11200287CF9 /* Iterator_Types.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = FAF03B1F1800F11200287CF9 /* Iterator_Types.1 */; };
 /* End PBXBuildFile section */
@@ -407,6 +408,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FACE461218073CCF00379420 /* string_funcs.h in Sources */,
 				FA4C6989180600F30069C4BC /* main.cpp in Sources */,
 				FA4C6991180601120069C4BC /* Basins.cpp in Sources */,
 				FA4C6994180601330069C4BC /* Duplicates.cpp in Sources */,
@@ -472,6 +474,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
+				LIBRARY_SEARCH_PATHS = "/opt/local/include/**";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -486,6 +489,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
+				LIBRARY_SEARCH_PATHS = "/opt/local/include/**";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -644,6 +648,7 @@
 				FA4C698D180600F30069C4BC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FA8ED4B117EF42EB0060AE84 /* Build configuration list for PBXNativeTarget "Business Card Ray Tracer" */ = {
 			isa = XCConfigurationList;
