@@ -26,9 +26,9 @@ bool not_url_char(char);
 std::string::const_iterator url_end(std::string::const_iterator, std::string::const_iterator);
 std::string::const_iterator url_beg(std::string::const_iterator, std::string::const_iterator);
 std::vector<std::string> find_urls(const std::string&);
-static inline std::string& ltrim(std::string&);
-static inline std::string& rtrim(std::string&);
-static inline std::string& trim(std::string&);
+inline std::string& ltrim(std::string&);
+inline std::string& rtrim(std::string&);
+inline std::string& trim(std::string&);
 
 
 template <class Out>

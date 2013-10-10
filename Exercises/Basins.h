@@ -17,9 +17,9 @@
 #include <boost/tokenizer.hpp>
 
 
-static void calculate_basins(int**);
-static std::string lowest_plot(int**, int, int, char);
-static bool is_out_of_bounds(int, int, int);
+void calculate_basins(int**, const size_t);
+std::string lowest_plot(int**, int, int, char, const size_t);
+bool is_out_of_bounds(int, int, int, const size_t);
 
 
 #endif /* defined(__C___Programs__Basins__) */

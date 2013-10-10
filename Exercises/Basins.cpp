@@ -100,63 +100,20 @@ using std::string;      using std::stringstream;
 using std::cout;        using std::endl;
 using std::map;
 
-static void calculate_basins(int** area) {
-    static const size_t size = sizeof(area)/sizeof(*area);
-    string** basins = new string*[size];
-    for (int i = 0; i < size; i++)
-        basins[i] = new string[size];
-    map<string, string> m;
-    char unique_char = 'A';
-    
-    for (int x = 0; x < size; x++) {
-        for (int y = 0; y < size; y++) {
-            basins[x][y] = lowest_plot(area, x, y, 'A');
-            map<string, string>::iterator it = m.find(basins[x][y]);
-            if (it != m.end()) {
-                string value_string = it->second;
-                
-                typedef boost::tokenizer<boost::char_separator<char> > tokenizer;
-                boost::char_separator<char> sep(":");
-                tokenizer tokens(value_string, sep);
-                tokenizer::iterator tok_iter = tokens.begin();
-                
-                char basin_unique_char = (*tok_iter).c_str()[0];
-                tok_iter++;
-                int basin_size = atoi((*tok_iter).c_str());
-                
-                basin_size += 1;
-                stringstream ss;
-                ss << basin_unique_char << ":" << basin_size;
-                string s = ss.str();
-                m.insert(std::pair<string, string>(basins[x][y], s));
-            } else {
-                stringstream ss;
-                ss << unique_char << ":" << 1;
-                string s = ss.str();
-                m.insert(std::pair<string, string>(basins[x][y], s));
-            }
-        }
-    }
-    for (int x = 0; x < size; x++) {
-        for (int y = 0; y < size; y++) {
-            map<string, string>::iterator it = m.find(basins[x][y]);
-            if (it != m.end()) {
-                cout << '\t' << it->second;
-            }
-        }
-        cout << endl;
-    }
-    for (int i = 0; i < size; i++) {
-        delete [] basins[i];
-    }
-    delete [] basins;
+
+bool is_out_of_bounds(int x, int y, const size_t size) {
+    bool flag = false;
+    if (x < 0 || x >= size)
+        flag = true;
+    if (y < 0 || y >= size)
+        flag = true;
+    return flag;
 }
 
-static string lowest_plot(int** area, int x, int y, char ch) {
+string lowest_plot(int** area, int x, int y, char ch, const size_t size) {
     stringstream ss;
     ss << x << "," << y;
     string lowest_p = ss.str();
-    static const size_t size = sizeof(area)/sizeof(*area);
     int leftX, leftY, rightX, rightY, topX, topY, bottomX, bottomY;
     int minX, minY, min_value;
     
@@ -208,18 +165,61 @@ static string lowest_plot(int** area, int x, int y, char ch) {
     if (minX == x && minY == y) {
         // self is lowest
     } else {
-        lowest_p = lowest_plot(area, minX, minY, ch);
+        lowest_p = lowest_plot(area, minX, minY, ch, size);
     }
     return lowest_p;
 }
 
-static bool is_out_of_bounds(int x, int y, int size) {
-    bool flag = false;
-    if (x < 0 || x >= size)
-        flag = true;
-    if (y < 0 || y >= size)
-        flag = true;
-    return flag;
+void calculate_basins(int** area, const size_t size) {
+    string** basins = new string*[size];
+    for (int i = 0; i < size; i++)
+        basins[i] = new string[size];
+    map<string, string> m;
+    char unique_char = 'A';
+    for (int x = 0; x < size; x++) {
+        for (int y = 0; y < size; y++) {
+            basins[x][y] = lowest_plot(area, x, y, 'A', size);
+            map<string, string>::iterator it = m.find(basins[x][y]);
+            if (it != m.end()) {
+                string value_string = it->second;
+                
+                typedef boost::tokenizer<boost::char_separator<char> > tokenizer;
+                boost::char_separator<char> sep(":");
+                tokenizer tokens(value_string, sep);
+                tokenizer::iterator tok_iter = tokens.begin();
+                
+                char basin_unique_char = (*tok_iter).c_str()[0];
+                tok_iter++;
+                int basin_size = atoi((*tok_iter).c_str());
+                
+                basin_size += 1;
+                stringstream ss;
+                ss << basin_unique_char << ":" << basin_size;
+                string s = ss.str();
+                m[basins[x][y]] = s;
+                //m.insert(std::pair<string, string>(basins[x][y], s));
+            } else {
+                stringstream ss;
+                ss << unique_char++ << ":" << 1;
+                string s = ss.str();
+                m[basins[x][y]] = s;
+                //m.insert(std::pair<string, string>(basins[x][y], s));
+            }
+        }
+    }
+    for (int x = 0; x < size; x++) {
+        for (int y = 0; y < size; y++) {
+            map<string, string>::iterator it = m.find(basins[x][y]);
+            if (it != m.end()) {
+                cout << it->second << '\t';
+            }
+        }
+        cout << endl;
+    }
+    for (int i = 0; i < size; i++) {
+        delete [] basins[i];
+    }
+    delete [] basins;
 }
 
 
