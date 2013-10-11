@@ -211,7 +211,7 @@ void calculate_basins(int** area, const size_t size) {
         for (int y = 0; y < size; y++) {
             map<string, string>::iterator it = m.find(basins[x][y]);
             if (it != m.end()) {
-                cout << it->second << '\t';
+                cout << it->second << ' ';
             }
         }
         cout << endl;
