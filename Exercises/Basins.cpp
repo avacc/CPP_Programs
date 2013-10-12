@@ -102,12 +102,7 @@ using std::map;
 
 
 bool is_out_of_bounds(int x, int y, const size_t size) {
-    bool flag = false;
-    if (x < 0 || x >= size)
-        flag = true;
-    if (y < 0 || y >= size)
-        flag = true;
-    return flag;
+    return x < 0 || y < 0 || x >= size || y >= size;
 }
 
 string lowest_plot(int** area, int x, int y, char ch, const size_t size) {
